@@ -21,7 +21,7 @@ urbackupclientbackend -v $VERBOSITY &
 PID=$!
 
 # Wait for the service to start by watching the log file
-( tail -f -n0 /var/log/urbackupclient.log & ) | grep -q "Started UrBackupClient Backend"
+( tail -f -n0 --retry /var/log/urbackupclient.log & ) | grep -q "Started UrBackupClient Backend"
 
 # Set the configurations
 if ! [ -z "$COMPUTERNAME" ]; then
