@@ -33,5 +33,11 @@ if [ "$INTERNET_MODE_ENABLED" = "true" ]; then
 fi
 # [ ! -e /etc/default/urbackupclient ] || sed -i 's/INTERNET_ONLY=false/INTERNET_ONLY=true/' /etc/default/urbackupclient
 
+# Add the default directory to backup unless it's already there
+mkdir -p /backup
+if ! ( urbackupclientctl list | grep -q /backup ) then 
+    urbackupclientctl add-backupdir --path /backup
+fi
+
 # Wait for Ctrl-C
 while true; do sleep 1; done
