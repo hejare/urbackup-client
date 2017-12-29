@@ -40,4 +40,4 @@ if ! ( urbackupclientctl list | grep -q /backup ) then
 fi
 
 # Wait for Ctrl-C
-while true; do sleep 1; done
+while true; do sleep 1d; done
