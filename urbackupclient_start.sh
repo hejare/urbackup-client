@@ -25,7 +25,7 @@ PID=$!
 
 # Set the configurations
 if ! [ -z "$COMPUTERNAME" ]; then
-    urbackupclientctl set-settings -k computername -v $COMPUTERNAME
+    urbackupclientctl set-settings -k computername -v "$COMPUTERNAME"
 fi
 
 if [ "$INTERNET_MODE_ENABLED" = "true" ]; then
